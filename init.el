@@ -51,6 +51,7 @@
     key-combo
     toml-mode
     smartparens
+    mozc
     ))
 
 (let ((not-installed (loop for x in installing-package-list
