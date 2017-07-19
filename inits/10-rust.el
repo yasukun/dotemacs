@@ -40,3 +40,7 @@
                        key-combo-rust-default)
     (add-hook 'rust-mode-hook (lambda ()
 				(key-combo-mode 1)))))
+
+(use-package rust-playground-mode
+  :bind
+  (("C-c C-g" . rust-playground-exec)))
