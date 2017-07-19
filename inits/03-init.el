@@ -1,10 +1,16 @@
-(prefer-coding-system 'utf-8)                                                                
+(prefer-coding-system 'utf-8)
 (setq coding-system-for-read 'utf-8)
 (setq coding-system-for-write 'utf-8)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq create-lockfiles nil)
 (global-set-key "\C-h" 'delete-backward-char)
+
+(use-package mozc
+  :config
+  (set-language-environment "Japanese")
+  (setq default-input-method "japanese-mozc")
+  )
 
 (defun split-window-vertically-n (num_wins)
   (interactive "p")
@@ -24,7 +30,7 @@
        (- (window-width) (/ (window-width) num_wins)))
       (split-window-horizontally-n (- num_wins 1)))))
 
-(defun other-window-or-split ()                                                              
+(defun other-window-or-split ()
   (interactive)
   (when (one-window-p)
     (if (>= (window-body-width) 270)
@@ -40,7 +46,7 @@
 (defun my-move-beginning-of-line ()
   (interactive)
   (if (bolp)
-      (back-to-indentation)                                                                  
+      (back-to-indentation)
     (beginning-of-line)))
 (global-set-key "\C-a" 'my-move-beginning-of-line)
 
